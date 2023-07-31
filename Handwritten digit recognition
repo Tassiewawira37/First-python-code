@@ -1,0 +1,39 @@
+import cv2 as cv
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+
+
+#importing handwritten digits.
+mnist = tf.keras.datasets.mnist
+(x_train,y_train),(x_test,y_test) = mnist.load_data()
+
+#normalize the data to make it easy to be computed.y data is not scalled down
+x_train = tf.keras.utils.normalize(x_train, axis=1)
+x_test = tf.keras.utils.normalize(x_test, axis=1)
+
+#defining the model.
+model = tf.keras.models.Sequential()
+#add a flat layer,one dimensional layer,more of a grid;28,28-individual pixels
+model.add(tf.keras.layers.Flatten(input_shape=(28,28)))
+#means all nuerons are connected to the previous and the next layer
+model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+#relu-linear rectifier function
+model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+#output layer-10neurons
+model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
+
+#compiling the model
+model.compile(optimizer='adam', loss='sparse_categorical crossentropy', metrics=['accuracy'])
+model.fit(x_train,y_train,epochs=3)
+#epochs-the no of times we will se the model in the output
+
+accuracy, loss = model.evaluate(x_test,y_test)
+print(accuracy)
+print(loss)
+
+model.save('digits.model')
+
+#for x in range(1,6):
