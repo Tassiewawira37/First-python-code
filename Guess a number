@@ -1,0 +1,21 @@
+import random
+
+x = random.randint(1,9)
+user = 0
+count = 0
+
+while user != x and user != 'exit':
+    user = input('Enter a number btn 1 and 9 or else type exit to quit')
+
+if user == 'exit':
+    break
+
+user = int(user)
+#count += 1
+
+if user == a:
+    print('Guessed correctly at ,tries')
+elif user > a:
+    print('Guess too high')
+elif user < a:
+    print('Guess too low')
