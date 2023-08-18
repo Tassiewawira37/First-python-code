@@ -1,0 +1,40 @@
+# Rock beats scissors
+# Scissors beats paper
+# Paper beats Rock
+
+#a = "Player 1; Choose your option; "
+#b = "Player 2; Choose your option; "
+
+a=input("Player-1 : Type your choice : Rock, Scissors, Paper: ")
+b=input("Player-2 : Type your choice : Rock, Scissors, Paper: ")
+a=a.lower()
+b=b.lower()
+
+while True:
+    if a == b :
+        print ("Same input cannot be accepted")
+    elif a not in ['rock','paper','scissors'] or b not in['rock','paper','scissors'] :
+        print ("wrong input")
+    elif a==('Rock').lower() and b==('Scissors').lower():
+        print ("Congratulations!!! Player-1 win")
+    elif a==('Scissors').lower() and b==('Rock').lower():
+        print ("Congratulations!!! Player-2 win")
+    elif a==('Scissors').lower() and b==('Paper').lower():
+        print ("Congratulations!!! Player-1 win")
+    elif a==('Paper').lower() and b==('Scissors').lower():
+        print ("Congratulations!!! Player-2 win")
+    elif a==('Paper').lower() and b==('Rock').lower():
+        print ("Congratulations!!! Player-1 win")
+    elif a==('Rock').lower() and b==('Paper').lower():
+        print ("Congratulations!!! Player-2 win")
+c=input("Do you want to continue this game yes/no : ")
+c=c.lower()
+if c=='yes':
+    a=input("Player-1 : Type your choice : Rock, Scissors, Paper: ")
+    b=input("Player-2 : Type your choice : Rock, Scissors, Paper: ")
+    a=a.lower()
+    b=b.lower()
+continue
+elif c =='no':
+    print ("Thanks for participating! Have a wonderful day !!!")
+break
